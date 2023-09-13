@@ -1,0 +1,16 @@
+.container {
+  width: 700px;
+  height: 700px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  display: flex;
+  margin: 0 auto;
+  flex-flow: row wrap;
+  box-shadow: 4px 5px 10px rgb(201, 201, 201);
+}
+
+.divElement {
+  flex: 1;
+  margin: 0;
+}
+
