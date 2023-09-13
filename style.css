@@ -1,12 +1,15 @@
+body {
+  background-color: rgb(236, 236, 236);
+}
+
 .container {
+  background-color: rgb(255, 255, 255);
   width: 700px;
   height: 700px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
   display: flex;
   margin: 0 auto;
   flex-flow: row wrap;
-  box-shadow: 4px 5px 10px rgb(201, 201, 201);
+  box-shadow: 6px 6px 10px 2px rgb(200, 200, 200);
 }
 
 .divElement {
@@ -14,3 +17,10 @@
   margin: 0;
 }
 
+.colored {
+  opacity: 1;
+}
+
+.erased {
+  background-color: red;
+}

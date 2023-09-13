@@ -1,18 +1,45 @@
 const gridSize = 700;
 var totalElements = 256;
-var divSize = 50;
+var divSize = (gridSize / 16);
 const containerGrid = document.getElementById('containerGrid');
-const create = document.getElementById('create');
-
-let divs = [];
-
 var slider = document.getElementById('slider');
+
 var output = document.getElementById('slider-value');
 output.textContent = slider.value;
 
+// Get mouse click status
+var mouseStatus = 0;
+window.onmousedown = function () {
+  mouseStatus = 1;
+  console.log(mouseStatus);
+}
+window.onmouseup = function () {
+  mouseStatus = 0;
+  console.log(mouseStatus);
+}
+
+// Create default new child elements inside the grid
+for (i = 1; i <= totalElements; i++) {
+  const divElement = document.createElement('div');
+  divElement.classList.add('divElement');
+  // divElement.textContent = i;
+  containerGrid.appendChild(divElement);
+
+  // get random values for rgb
+  const r = Math.random() * 255;
+  const g = Math.random() * 255;
+  const b = Math.random() * 255;
+
+  divElement.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
+  background-color: rgb(${r},${g},${b}); opacity: 0.1`);
+}
+
+var divs = document.querySelectorAll('.divElement');
+
 // Slider changes
-slider.oninput = function () {
+slider.oninput = function () {  
   
+  // Update grid values
   output.textContent = this.value; 
   totalElements = this.value * this.value;
   divSize = (gridSize / this.value);
@@ -34,60 +61,42 @@ slider.oninput = function () {
     const g = Math.random() * 255;
     const b = Math.random() * 255;
 
-    divElement.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; background-color: rgb(${r},${g},${b}); opacity: 0.05`); 
+    // Style the elements with random colors
+    divElement.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
+    background-color: rgb(${r},${g},${b}); opacity: 0.1`); 
   }
+
+  // update nodeList of divElement class elements.
+  divs = document.querySelectorAll('.divElement');
   
-  containerGrid.onmousedown = function () {
-    divs = document.querySelectorAll('.divElement');
-    divs.forEach(item => {
-      item.addEventListener ('mouseover', (e) => {
+  // Paint elements in the grid
+  divs.forEach(item => {
+  item.addEventListener ('mouseover', (e) => {
+      if (mouseStatus) {
         const r = Math.random() * 255;
         const g = Math.random() * 255;
         const b = Math.random() * 255;
     
-        item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; background-color: rgb(${r},${g},${b}); opacity: 1`);
-      })
+        item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
+        background-color: rgb(${r},${g},${b})`);
+        item.classList.add('colored');
+      }
     })
-  }
-
-  containerGrid.onmouseup = function () {
-    divs = document.querySelectorAll('.divElement');
-    divs.forEach(item => {
-      item.addEventListener ('mouseover', (e) => {
-        const r = Math.random() * 255;
-        const g = Math.random() * 255;
-        const b = Math.random() * 255;
-    
-        item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; background-color: rgb(${r},${g},${b}); opacity: 0.05`);
-      })
-    })
-  }
-
+  })
 }
 
-// Create default new child elements inside the grid
-// divSize = (gridSize / 16);
-// for (i = 1; i <= totalElements; i++) {
-//   const divElement = document.createElement('div');
-//   divElement.classList.add('divElement');
-//   // divElement.textContent = i;
-//   containerGrid.appendChild(divElement);
+// Paint elements in the grid
+divs.forEach(item => {
+  item.addEventListener ('mouseover', (e) => {
+    if (mouseStatus) {
+      const r = Math.random() * 255;
+      const g = Math.random() * 255;
+      const b = Math.random() * 255;
+  
+      item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
+      background-color: rgb(${r},${g},${b})`);
+      item.classList.add('colored');
+    }  
+  })
+})
 
-//   // get random values for rgb
-//   const r = Math.random() * 255;
-//   const g = Math.random() * 255;
-//   const b = Math.random() * 255;
-
-//   divElement.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; background-color: rgb(${r},${g},${b}); opacity: 0.05`);
-// }
-
-
-// divs.forEach(item => {
-//   item.addEventListener ('mouseover', (e) => {
-//     const r = Math.random() * 255;
-//     const g = Math.random() * 255;
-//     const b = Math.random() * 255;
-
-//     item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; background-color: rgb(${r},${g},${b}); opacity: 1`);
-//   })
-// })
