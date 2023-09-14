@@ -4,27 +4,23 @@ var divSize = (gridSize / 16);
 const containerGrid = document.getElementById('containerGrid');
 var slider = document.getElementById('slider');
 
-var output = document.getElementById('slider-value');
-output.textContent = slider.value;
+const style = document.getElementById('style');
 
 // Get mouse click status
 var mouseStatus = 0;
 window.onmousedown = function () {
   mouseStatus = 1;
-  console.log(mouseStatus);
 }
 window.onmouseup = function () {
   mouseStatus = 0;
-  console.log(mouseStatus);
 }
 
 // Create default new child elements inside the grid
 for (i = 1; i <= totalElements; i++) {
   const divElement = document.createElement('div');
   divElement.classList.add('divElement');
-  // divElement.textContent = i;
   containerGrid.appendChild(divElement);
-
+  
   // get random values for rgb
   const r = Math.random() * 255;
   const g = Math.random() * 255;
@@ -40,7 +36,6 @@ var divs = document.querySelectorAll('.divElement');
 slider.oninput = function () {  
   
   // Update grid values
-  output.textContent = this.value; 
   totalElements = this.value * this.value;
   divSize = (gridSize / this.value);
 
@@ -53,7 +48,6 @@ slider.oninput = function () {
   for (i = 1; i <= totalElements; i++) {
     const divElement = document.createElement('div');
     divElement.classList.add('divElement');
-    // divElement.textContent = i;
     containerGrid.appendChild(divElement);
 
     // get random values for rgb
@@ -100,3 +94,6 @@ divs.forEach(item => {
   })
 })
 
+var switchMode = document.getElementById('switchMode');
+
+console.log(switchMode);

@@ -1,5 +1,38 @@
 body {
   background-color: rgb(236, 236, 236);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.header {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid blue;
+  width: 700px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  border: 1px solid red;
+}
+
+#slider,
+#style {
+  margin: 0 10px;
+}
+
+h1 {
+  font-size: 46px;
+  font-weight: 700;
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+  font-size: 14px;
 }
 
 .container {
@@ -21,6 +54,3 @@ body {
   opacity: 1;
 }
 
-.erased {
-  background-color: red;
-}
