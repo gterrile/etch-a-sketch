@@ -2,6 +2,8 @@
 const containerGrid = document.getElementById('containerGrid');
 const style = document.getElementById('style');
 const slider = document.getElementById('slider');
+const pen = document.getElementById('pen');
+const body = document.getElementById('body');
 
 // Grid variables
 const gridSize = 700;
@@ -14,11 +16,11 @@ let divSize = (gridSize / slider.value);
 var mouseStatus = 0;
 window.onmousedown = function () { 
   mouseStatus = 1;
-  console.log(mouseStatus);
+  //console.log(mouseStatus);
 }
 window.onmouseup = function () { 
   mouseStatus = 0; 
-  console.log(mouseStatus);
+  //console.log(mouseStatus);
 }
 
 // Colored grid
@@ -78,6 +80,7 @@ function createGrayscaleGrid () {
   return divs;
 }
 
+// Initialize grid with colors
 let lala = createColoredGrid();
 paintColor(lala, slider.value);
 
@@ -96,7 +99,15 @@ function paintColor(nodes) {
           background-color: rgb(${r},${g},${b})`);
           item.classList.add('colored');
         }
-    })
+        if (mouseStatus && pen.value == 2) {
+          const r = Math.random() * 255;
+          const g = Math.random() * 255;
+          const b = Math.random() * 255;
+          item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
+          background-color: rgb(${r},${g},${b}); opacity: 0.1`);
+          item.classList.remove('colored');
+        }
+  });
   })
 }
 
@@ -111,6 +122,12 @@ function paintBlack(nodes) {
           item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
           background-color: rgb(0,0,0)`);
           item.classList.add('colored');
+        }
+        if (mouseStatus && pen.value == 2) {
+          const x = Math.random() * 255;
+          item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
+          background-color: rgb(${x},${x},${x}); opacity: 0.1`);
+          item.classList.remove('colored');
         }
     })
   })
@@ -139,13 +156,17 @@ style.onchange = function () {
   }
 }
 
-// if (mouseStatus) {
-//   paintColor();
-// }
+// Erase mode
 
-
-// var divs = document.querySelectorAll('.divElement');
-
-
-
+pen.addEventListener('change', (e) => {
+  console.log(pen.value);
+  if (pen.value == 2) {
+    body.setAttribute('style', 'background-color: rgb(79, 79, 79)');
+    containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(50, 50, 50)');
+  }
+  else {
+    body.setAttribute('style', 'background-color: rgb(236, 236, 236)');
+    containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(200, 200, 200)');
+  }
+} )
 

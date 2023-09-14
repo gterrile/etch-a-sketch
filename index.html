@@ -9,21 +9,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="body">
   <div class="header">
     <h1>Etch A Sketch</h1>
     <div class="controls">
       <label for="slider">size</label>
-      <input id="slider" type="range" min="16" max="100" value="16">
+      <input id="slider" type="range" min="16" max="100" value="16" style="margin-right: 20px">
 
-      <label for="style">style</label>
+      <label for="style">color</label>
       <input id="style" type="range" min="1" max="2" value="1">
+      <label for="style" style="margin-right: 20px;">b&w</label>
+
+      <label for="pen">draw</label>
+      <input id="pen" type="range" min="1" max="2" value="1">
+      <label for="pen">erase</label>
     </div>
 
     
   </div>
 
-  <div id='containerGrid' class="container"></div>
+  <div id='containerGrid' class="containerGrid"></div>
   <script src="script.js"></script>
 </body>
 </html>

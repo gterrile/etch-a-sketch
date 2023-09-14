@@ -19,12 +19,13 @@ body {
   border: 1px solid red;
 }
 
-#slider,
+/* #slider,
 #style {
   margin: 0 10px;
-}
+} */
 
-#style {
+#style,
+#pen {
   width: 30px;
 }
 
@@ -39,7 +40,7 @@ h4 {
   font-size: 14px;
 }
 
-.container {
+.containerGrid {
   background-color: rgb(255, 255, 255);
   width: 700px;
   height: 700px;
