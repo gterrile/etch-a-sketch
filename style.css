@@ -24,6 +24,10 @@ body {
   margin: 0 10px;
 }
 
+#style {
+  width: 30px;
+}
+
 h1 {
   font-size: 46px;
   font-weight: 700;
