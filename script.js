@@ -48,7 +48,7 @@ function createColoredGrid () {
     const b = Math.random() * 255;
 
     divElement.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
-    background-color: rgb(${r},${g},${b}); opacity: 0.1`);
+    background-color: rgb(${r},${g},${b}); opacity: 0.05`);
   }
   
   let divs = document.querySelectorAll('.divElement');
@@ -76,7 +76,7 @@ function createGrayscaleGrid () {
     const x = Math.random() * 255;
 
     divElement.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
-    background-color: rgb(${x},${x},${x}); opacity: 0.1`);
+    background-color: rgb(${x},${x},${x}); opacity: 0.05`);
   }
   let divs = document.querySelectorAll('.divElement');
   paintBlack(divs);
@@ -107,7 +107,7 @@ function paintColor(nodes) {
           const g = Math.random() * 255;
           const b = Math.random() * 255;
           item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
-          background-color: rgb(${r},${g},${b}); opacity: 0.1`);
+          background-color: rgb(${r},${g},${b}); opacity: 0.05`);
           item.classList.remove('colored');
         }
   });
@@ -129,7 +129,7 @@ function paintBlack(nodes) {
         if (mouseStatus && pen.value == 2) {
           const x = Math.random() * 255;
           item.setAttribute('style', `height:${divSize}px; min-width:${divSize}px; 
-          background-color: rgb(${x},${x},${x}); opacity: 0.1`);
+          background-color: rgb(${x},${x},${x}); opacity: 0.05`);
           item.classList.remove('colored');
         }
     })
@@ -164,11 +164,11 @@ style.onchange = function () {
 pen.addEventListener('change', (e) => {
   console.log(pen.value);
   if (pen.value == 2) {
-    body.setAttribute('style', 'background-color: rgb(79, 79, 79)');
+    containerGrid.setAttribute('style', 'border: 5px solid tomato');
     // containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(50, 50, 50)');
   }
   else {
-    body.setAttribute('style', 'background-color: #EEEDED');
+    containerGrid.setAttribute('style', 'border: none');
     // containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(200, 200, 200)');
   }
 } )
