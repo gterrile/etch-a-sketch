@@ -6,6 +6,7 @@ const pen = document.getElementById('pen');
 const body = document.getElementById('body');
 const snapshot = document.getElementById('snapshot');
 const canvaContainer = document.getElementById('canvaContainer');
+const shutter = document.getElementById('shutter');
 
 // Grid variables
 const gridSize = 700;
@@ -167,13 +168,15 @@ pen.addEventListener('change', (e) => {
     // containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(50, 50, 50)');
   }
   else {
-    body.setAttribute('style', 'background-color: rgb(236, 236, 236)');
+    body.setAttribute('style', 'background-color: #EEEDED');
     // containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(200, 200, 200)');
   }
 } )
 
 snapshot.onclick = function () {
   html2canvas(document.querySelector("#containerGrid")).then(canvas => {
+    shutter.currentTime = 0;
+    shutter.play();
     canvaContainer.appendChild(canvas)
     canvas.setAttribute('style', 'height: 200px; width: 200px');
   });
