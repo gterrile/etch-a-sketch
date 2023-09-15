@@ -1,4 +1,4 @@
-#Etch A Sketch
+# Etch A Sketch
 
 This is a Etch A Sketch app with the following funtionalities.
 
