@@ -9,7 +9,7 @@ body {
   align-items: center;
   margin: 0 auto;
   width: 700px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   /* border: 2px solid blue; */
 }
@@ -61,6 +61,10 @@ h1 {
   margin: 0;
 }
 
+h1:hover {
+  color: #fcbc0c;
+}
+
 .containerGrid {
   background-color: rgb(255, 255, 255);
   width: 700px;
@@ -83,7 +87,7 @@ h1 {
   display: flex;
   flex-direction: row;
   overflow-y: auto;
-  width: 820px;
+  width: 900px;
   height: 220px;
   margin: 0 auto;
   align-items: center;
@@ -151,4 +155,16 @@ canvas {
   height: 25px;
   background: #fcbc0c;
   cursor: pointer;
+}
+
+footer {
+  height: 60px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  font-size: 16px;
 }
