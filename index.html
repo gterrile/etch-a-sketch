@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src=
+"https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+  </script>
 </head>
 <body id="body">
   <div class="header">
@@ -24,11 +27,11 @@
       <input id="pen" type="range" min="1" max="2" value="1">
       <label for="pen">erase</label>
     </div>
-
-    
+    <button id="snapshot">Snapshot</button>
   </div>
 
   <div id='containerGrid' class="containerGrid"></div>
+  <div id="canvaContainer"></div>
   <script src="script.js"></script>
 </body>
 </html>

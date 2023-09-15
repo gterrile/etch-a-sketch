@@ -17,6 +17,7 @@ body {
 .controls {
   display: flex;
   border: 1px solid red;
+  margin-bottom: 10px;
 }
 
 /* #slider,
@@ -47,7 +48,6 @@ h4 {
   display: flex;
   margin: 0 auto;
   flex-flow: row wrap;
-  box-shadow: 6px 6px 10px 2px rgb(200, 200, 200);
 }
 
 .divElement {
@@ -59,3 +59,19 @@ h4 {
   opacity: 1;
 }
 
+#canvaContainer {
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  border: 1px solid blue;
+  width: 700px;
+  height: 250px;
+  margin: 0 auto;
+  align-items: center;
+  background-color: bisque;
+  margin-top: 20px;
+}
+
+canvas {
+  margin: 0 5px;
+}

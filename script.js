@@ -4,6 +4,8 @@ const style = document.getElementById('style');
 const slider = document.getElementById('slider');
 const pen = document.getElementById('pen');
 const body = document.getElementById('body');
+const snapshot = document.getElementById('snapshot');
+const canvaContainer = document.getElementById('canvaContainer');
 
 // Grid variables
 const gridSize = 700;
@@ -162,11 +164,18 @@ pen.addEventListener('change', (e) => {
   console.log(pen.value);
   if (pen.value == 2) {
     body.setAttribute('style', 'background-color: rgb(79, 79, 79)');
-    containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(50, 50, 50)');
+    // containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(50, 50, 50)');
   }
   else {
     body.setAttribute('style', 'background-color: rgb(236, 236, 236)');
-    containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(200, 200, 200)');
+    // containerGrid.setAttribute('style', 'box-shadow: 6px 6px 10px 2px rgb(200, 200, 200)');
   }
 } )
+
+snapshot.onclick = function () {
+  html2canvas(document.querySelector("#containerGrid")).then(canvas => {
+    canvaContainer.appendChild(canvas)
+    canvas.setAttribute('style', 'height: 200px; width: 200px');
+  });
+}
 
