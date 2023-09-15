@@ -1,5 +1,7 @@
 # Etch A Sketch
 
+Check out a [Live Preview] (https://gterrile.github.io/etch-a-sketch/)
+
 This is a Etch A Sketch app with the following funtionalities.
 
 - Change size of the painting grid upto 100x100 pixels
